@@ -21,3 +21,10 @@ Summary of "most used":
 
 More information on conventional commits:
 https://www.conventionalcommits.org/es/v1.0.0-beta.3/
+
+## Signing of commits
+Signing commits allows us to verify that the author of the commit is who he/she claims to be. To perform this procedure we will use the following documentation.
+
+https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key
+
+
