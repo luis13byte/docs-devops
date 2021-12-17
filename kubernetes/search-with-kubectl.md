@@ -10,3 +10,7 @@ List pods and their workers where they are assigned.
 kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --namespace live
 ~~~
 
+List all resources, literally.
+~~~
+kubectl get $(kubectl api-resources| awk '{ print $1 }'|grep -v "NAME"|xargs|sed -e 's/ /,/g')
+~~~
