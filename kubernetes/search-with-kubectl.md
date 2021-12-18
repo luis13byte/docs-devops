@@ -14,3 +14,9 @@ List all resources, literally.
 ~~~
 kubectl get $(kubectl api-resources| awk '{ print $1 }'|grep -v "NAME"|xargs|sed -e 's/ /,/g')
 ~~~
+
+List all resources, in a specific namespace.
+~~~
+kubectl api-resources --verbs=list --namespaced -o name \
+  | xargs -n 1 kubectl get --show-kind --ignore-not-found -n ingress-nginx
+~~~
