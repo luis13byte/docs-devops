@@ -20,3 +20,8 @@ List all resources, in a specific namespace.
 kubectl api-resources --verbs=list --namespaced -o name \
   | xargs -n 1 kubectl get --show-kind --ignore-not-found -n ingress-nginx
 ~~~
+
+Decode entire Kubernetes secret.
+~~~
+kubectl -n default get secret my-secret-name -o go-template='{{range $k,$v := .data}}{{printf "%s: " $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'
+~~~
